@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookCenterDBModelStoreContainer" CdmEntityContainer="BookCenterDBEntities1">
+    <EntitySetMapping Name="TBLBookRental">
+      <EntityTypeMapping TypeName="BookCenterDBModel.TBLBookRental">
+        <MappingFragment StoreEntitySet="TBLBookRental">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="ReaderStuID" ColumnName="ReaderStuID" />
+          <ScalarProperty Name="BookRentDay" ColumnName="BookRentDay" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="BookPrice" ColumnName="BookPrice" />
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLSafetyBook">
+      <EntityTypeMapping TypeName="BookCenterDBModel.TBLSafetyBook">
+        <MappingFragment StoreEntitySet="TBLSafetyBook">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ReaderStuID" ColumnName="ReaderStuID" />
+          <ScalarProperty Name="BookName" ColumnName="BookName" />
+          <ScalarProperty Name="SafetyDate" ColumnName="SafetyDate" />
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLUserLog">
+      <EntityTypeMapping TypeName="BookCenterDBModel.TBLUserLog">
+        <MappingFragment StoreEntitySet="TBLUserLog">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Authorize" ColumnName="Authorize" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLBookList">
+      <EntityTypeMapping TypeName="BookCenterDBModel.TBLBookList">
+        <MappingFragment StoreEntitySet="TBLBookList">
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+          <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLReaderStudent">
+      <EntityTypeMapping TypeName="BookCenterDBModel.TBLReaderStudent">
+        <MappingFragment StoreEntitySet="TBLReaderStudent">
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MembershipDate" ColumnName="MembershipDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+          <ScalarProperty Name="ClassNo" ColumnName="ClassNo" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NationalNo" ColumnName="NationalNo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

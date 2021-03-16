@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BookCenterDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBLBookList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="WriterName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Publisher" Type="nvarchar" MaxLength="30" />
+          <Property Name="Category" Type="nvarchar" MaxLength="20" />
+          <Property Name="ReleaseDate" Type="date" />
+          <Property Name="Stock" Type="int" />
+          <Property Name="Images" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLBookRental">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookID" Type="int" />
+          <Property Name="ReaderStuID" Type="int" />
+          <Property Name="BookRentDay" Type="datetime" />
+          <Property Name="DeliveryDate" Type="datetime" />
+          <Property Name="BookPrice" Type="money" />
+          <Property Name="PersonelID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLReaderStudent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NationalNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="20" />
+          <Property Name="ClassNo" Type="nvarchar" MaxLength="5" />
+          <Property Name="DateBirth" Type="datetime" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="MembershipDate" Type="datetime" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Images" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLSafetyBook">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReaderStuID" Type="int" />
+          <Property Name="BookName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SafetyDate" Type="datetime" />
+          <Property Name="PersonelID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBLUserLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar" MaxLength="30" />
+          <Property Name="Authorize" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="BookCenterDBModelStoreContainer">
+          <EntitySet Name="TBLBookList" EntityType="Self.TBLBookList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLBookRental" EntityType="Self.TBLBookRental" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLReaderStudent" EntityType="Self.TBLReaderStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLSafetyBook" EntityType="Self.TBLSafetyBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLUserLog" EntityType="Self.TBLUserLog" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookCenterDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBLBookRental">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookID" Type="Int32" />
+          <Property Name="ReaderStuID" Type="Int32" />
+          <Property Name="BookRentDay" Type="DateTime" Precision="3" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="BookPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PersonelID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBLSafetyBook">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReaderStuID" Type="Int32" />
+          <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SafetyDate" Type="DateTime" Precision="3" />
+          <Property Name="PersonelID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBLUserLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Authorize" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="BookCenterDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBLBookRental" EntityType="Self.TBLBookRental" />
+          <EntitySet Name="TBLSafetyBook" EntityType="Self.TBLSafetyBook" />
+          <EntitySet Name="TBLUserLog" EntityType="Self.TBLUserLog" />
+          <EntitySet Name="TBLBookList" EntityType="BookCenterDBModel.TBLBookList" />
+          <EntitySet Name="TBLReaderStudent" EntityType="BookCenterDBModel.TBLReaderStudent" />
+        </EntityContainer>
+        <EntityType Name="TBLBookList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WriterName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Publisher" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ReleaseDate" Type="DateTime" Precision="0" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="Images" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLReaderStudent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NationalNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ClassNo" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="DateBirth" Type="DateTime" Precision="3" />
+          <Property Name="Telephone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MembershipDate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Images" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookCenterDBModelStoreContainer" CdmEntityContainer="BookCenterDBEntities1">
+          <EntitySetMapping Name="TBLBookRental">
+            <EntityTypeMapping TypeName="BookCenterDBModel.TBLBookRental">
+              <MappingFragment StoreEntitySet="TBLBookRental">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="ReaderStuID" ColumnName="ReaderStuID" />
+                <ScalarProperty Name="BookRentDay" ColumnName="BookRentDay" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="BookPrice" ColumnName="BookPrice" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLSafetyBook">
+            <EntityTypeMapping TypeName="BookCenterDBModel.TBLSafetyBook">
+              <MappingFragment StoreEntitySet="TBLSafetyBook">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ReaderStuID" ColumnName="ReaderStuID" />
+                <ScalarProperty Name="BookName" ColumnName="BookName" />
+                <ScalarProperty Name="SafetyDate" ColumnName="SafetyDate" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLUserLog">
+            <EntityTypeMapping TypeName="BookCenterDBModel.TBLUserLog">
+              <MappingFragment StoreEntitySet="TBLUserLog">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Authorize" ColumnName="Authorize" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLBookList">
+            <EntityTypeMapping TypeName="BookCenterDBModel.TBLBookList">
+              <MappingFragment StoreEntitySet="TBLBookList">
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+                <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLReaderStudent">
+            <EntityTypeMapping TypeName="BookCenterDBModel.TBLReaderStudent">
+              <MappingFragment StoreEntitySet="TBLReaderStudent">
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MembershipDate" ColumnName="MembershipDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+                <ScalarProperty Name="ClassNo" ColumnName="ClassNo" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NationalNo" ColumnName="NationalNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

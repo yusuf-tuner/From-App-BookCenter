@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82012E83-9241-4CAC-8FF5-BE989DEE38F8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BookCenter</RootNamespace>
+    <AssemblyName>BookCenter</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BookPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookPage.Designer.cs">
+      <DependentUpon>BookPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookRentalPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookRentalPage.Designer.cs">
+      <DependentUpon>BookRentalPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookStorageHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookStorageHome.Designer.cs">
+      <DependentUpon>BookStorageHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\BookCenterDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookCenterDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\BookCenterDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\BookCenterDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookCenterDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\TBLBookList.cs">
+      <DependentUpon>BookCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\TBLBookRental.cs">
+      <DependentUpon>BookCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\TBLReaderStudent.cs">
+      <DependentUpon>BookCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\TBLSafetyBook.cs">
+      <DependentUpon>BookCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\TBLUserLog.cs">
+      <DependentUpon>BookCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBookList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBookList.Designer.cs">
+      <DependentUpon>FrmBookList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmStudenList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStudenList.Designer.cs">
+      <DependentUpon>FrmStudenList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginPage.Designer.cs">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SafetyBookPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SafetyBookPage.Designer.cs">
+      <DependentUpon>SafetyBookPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentAdd.Designer.cs">
+      <DependentUpon>StudentAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentData.cs" />
+    <EmbeddedResource Include="BookPage.resx">
+      <DependentUpon>BookPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookRentalPage.resx">
+      <DependentUpon>BookRentalPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookStorageHome.resx">
+      <DependentUpon>BookStorageHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBookList.resx">
+      <DependentUpon>FrmBookList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStudenList.resx">
+      <DependentUpon>FrmStudenList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginPage.resx">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SafetyBookPage.resx">
+      <DependentUpon>SafetyBookPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentAdd.resx">
+      <DependentUpon>StudentAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DataBase\BookCenterDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BookCenterDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataBase\BookCenterDB.edmx.diagram">
+      <DependentUpon>BookCenterDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Book.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Book_480x260.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Book_240x120.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\books.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graduated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graduated-32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\class.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\study.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bookshelf.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\plus-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\updated-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBase\BookCenterDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookCenterDB.edmx</DependentUpon>
+      <LastGenOutput>BookCenterDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataBase\BookCenterDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BookCenterDB.edmx</DependentUpon>
+      <LastGenOutput>BookCenterDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

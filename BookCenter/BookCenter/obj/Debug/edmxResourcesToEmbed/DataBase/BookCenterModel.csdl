@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookCenterDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TBLBookRental">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookID" Type="Int32" />
+    <Property Name="ReaderStuID" Type="Int32" />
+    <Property Name="BookRentDay" Type="DateTime" Precision="3" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+    <Property Name="BookPrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PersonelID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TBLSafetyBook">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReaderStuID" Type="Int32" />
+    <Property Name="BookName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SafetyDate" Type="DateTime" Precision="3" />
+    <Property Name="PersonelID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TBLUserLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Authorize" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="BookCenterDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TBLBookRental" EntityType="Self.TBLBookRental" />
+    <EntitySet Name="TBLSafetyBook" EntityType="Self.TBLSafetyBook" />
+    <EntitySet Name="TBLUserLog" EntityType="Self.TBLUserLog" />
+    <EntitySet Name="TBLBookList" EntityType="BookCenterDBModel.TBLBookList" />
+    <EntitySet Name="TBLReaderStudent" EntityType="BookCenterDBModel.TBLReaderStudent" />
+  </EntityContainer>
+  <EntityType Name="TBLBookList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WriterName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Publisher" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ReleaseDate" Type="DateTime" Precision="0" />
+    <Property Name="Stock" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TBLReaderStudent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NationalNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ClassNo" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="DateBirth" Type="DateTime" Precision="0" />
+    <Property Name="Telephone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MembershipDate" Type="DateTime" Precision="3" />
+    <Property Name="Gender" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

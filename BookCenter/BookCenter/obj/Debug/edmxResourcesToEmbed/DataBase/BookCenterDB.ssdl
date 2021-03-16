@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookCenterDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBLBookList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="WriterName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="30" />
+    <Property Name="Category" Type="nvarchar" MaxLength="20" />
+    <Property Name="ReleaseDate" Type="date" />
+    <Property Name="Stock" Type="int" />
+    <Property Name="Images" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBLBookRental">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookID" Type="int" />
+    <Property Name="ReaderStuID" Type="int" />
+    <Property Name="BookRentDay" Type="datetime" />
+    <Property Name="DeliveryDate" Type="datetime" />
+    <Property Name="BookPrice" Type="money" />
+    <Property Name="PersonelID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBLReaderStudent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NationalNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="20" />
+    <Property Name="ClassNo" Type="nvarchar" MaxLength="5" />
+    <Property Name="DateBirth" Type="datetime" />
+    <Property Name="Telephone" Type="nvarchar" MaxLength="15" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="MembershipDate" Type="datetime" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Images" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBLSafetyBook">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReaderStuID" Type="int" />
+    <Property Name="BookName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SafetyDate" Type="datetime" />
+    <Property Name="PersonelID" Type="int" />
+  </EntityType>
+  <EntityType Name="TBLUserLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="30" />
+    <Property Name="Authorize" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="BookCenterDBModelStoreContainer">
+    <EntitySet Name="TBLBookList" EntityType="Self.TBLBookList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLBookRental" EntityType="Self.TBLBookRental" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLReaderStudent" EntityType="Self.TBLReaderStudent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLSafetyBook" EntityType="Self.TBLSafetyBook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBLUserLog" EntityType="Self.TBLUserLog" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
